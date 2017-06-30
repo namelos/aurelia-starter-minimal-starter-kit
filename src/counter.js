@@ -1,8 +1,10 @@
 export const INCREMENT = 'counter/INCREMENT';
 
-export const counter = (state = 0, action) => {
+const initalState = { n: 0 }
+
+export const counter = (state = initalState, action) => {
   switch (action.type) {
-    case INCREMENT: return state + 1
+    case INCREMENT: return { n: state.n + 1 }
     default: return state
   }
 };

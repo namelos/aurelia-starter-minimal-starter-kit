@@ -5,11 +5,11 @@ describe('create', () => {
   it('should create store with a reducer', () => {
     const store = createStore(counter)
 
-    expect(store.getState()).toBe(0)
+    expect(store.getState()).toEqual({ n: 0 })
 
     store.dispatch({ type: INCREMENT })
 
-    expect(store.getState()).toBe(1)
+    expect(store.getState()).toEqual({ n: 1 })
   })
 
   it('can subscribe and dispose', () => {
