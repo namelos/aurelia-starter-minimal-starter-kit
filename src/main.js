@@ -1,5 +1,3 @@
-import { store } from './lib/store'
-
 export async function configure(aurelia) {
   aurelia.use
     .standardConfiguration()

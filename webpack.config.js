@@ -7,7 +7,7 @@ module.exports = {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   entry: {
-    app: ['aurelia-bootstrapper']
+    app: ['babel-polyfill', 'aurelia-bootstrapper']
   },
   output: {
     filename: 'bundle.js',
