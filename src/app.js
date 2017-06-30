@@ -1,5 +1,5 @@
-import { redux, store } from './store'
-import { INCREMENT } from './counter'
+import { redux, store } from './lib/store'
+import { INCREMENT } from './models/counter'
 
 @redux
 export class App {

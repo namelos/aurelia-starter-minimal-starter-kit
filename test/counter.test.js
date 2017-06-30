@@ -1,4 +1,4 @@
-import { counter, INCREMENT } from '../src/counter'
+import { counter, INCREMENT } from '../src/models/counter'
 
 describe('counter', () => {
   it('should return 0 when init', () => {

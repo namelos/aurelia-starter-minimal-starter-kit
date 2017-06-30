@@ -1,6 +1,6 @@
-import { provider } from '../src/provider'
-import { counter, INCREMENT } from '../src/counter'
-import { createStore } from '../src/createStore'
+import { provider } from '../src/lib/provider'
+import { counter, INCREMENT } from '../src/models/counter'
+import { createStore } from '../src/lib/createStore'
 
 describe('provider', () => {
   it('should inject state', () => {

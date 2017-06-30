@@ -1,5 +1,5 @@
-import { createStore } from '../src/createStore'
-import { counter, INCREMENT } from '../src/counter'
+import { createStore } from '../src/lib/createStore'
+import { counter, INCREMENT } from '../src/models/counter'
 
 describe('create', () => {
   it('should create store with a reducer', () => {

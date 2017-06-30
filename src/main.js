@@ -1,4 +1,4 @@
-import { store } from './store'
+import { store } from './lib/store'
 
 export async function configure(aurelia) {
   aurelia.use

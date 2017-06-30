@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux'
-import { INCREMENT } from './counter'
+import { INCREMENT } from '../models/counter'
 
 const reducer = combineReducers({ counter })
 
