@@ -18,10 +18,10 @@ describe('provider', () => {
     const component = new Component('The precious data...')
     component.bind()
     expect(component.data).toBe('The precious data...')
-    expect(component.state).toEqual({ n: 0 })
+    expect(component.n).toBe(0)
 
     store.dispatch({ type: INCREMENT })
-    expect(component.state).toEqual({ n: 10 })
+    expect(component.n).toBe(10)
   })
 
   it('should inject to unbind life cycle', () => {
@@ -39,11 +39,11 @@ describe('provider', () => {
     const component = new Component('The precious data...')
     component.bind()
     expect(component.data).toBe('The precious data...')
-    expect(component.state).toEqual({ n: 0 })
+    expect(component.n).toBe(0)
 
     component.unbind()
     store.dispatch({ type: INCREMENT })
-    expect(component.state).toEqual({ n: 0 })
+    expect(component.n).toBe(0)
   })
 
   it('should call the old bind life cycle hook of the original class', () => {
@@ -71,12 +71,12 @@ describe('provider', () => {
 
     component.bind()
     expect(component.data).toBe('The precious data...')
-    expect(component.state).toEqual({ n: 0 })
+    expect(component.n).toBe(0)
     expect(component.binded).toBe('the bind hook has been properly called')
 
     component.unbind()
     store.dispatch({ type: INCREMENT })
-    expect(component.state).toEqual({ n: 0 })
+    expect(component.n).toBe(0)
     expect(component.unbinded).toBe('the unbinded hook has been properly called')
   })
 })

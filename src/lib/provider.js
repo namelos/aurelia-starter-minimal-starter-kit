@@ -13,7 +13,7 @@ export const provider = store => mapState => target => {
       const selected = mapState(state)
 
       if (!shallowEqual(prev, selected)) {
-        this.state = selected
+        Object.assign(this, selected)
         prev = selected
       }
     }
@@ -22,16 +22,11 @@ export const provider = store => mapState => target => {
 
     dispose = store.subscribe(sync)
 
-    if (originalBind) {
-      originalBind.apply(this, args)
-    }
+    if (originalBind) originalBind.apply(this, args)
   }
 
   target.prototype.unbind = function(...args) {
     if (dispose) dispose()
-
-    if (originalUnbind) {
-      originalUnbind.apply(this, ...args)
-    }
+    if (originalUnbind) originalUnbind.apply(this, ...args)
   }
 }
