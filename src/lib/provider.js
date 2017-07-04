@@ -2,8 +2,9 @@ import { shallowEqual } from './shallowEqual'
 
 export const provider = store => mapState => target => {
   let prev = null
+  let dispose = null
 
-  const injected = function(...args) {
+  target.prototype.bind = function(...args) {
     const sync = () => {
       const state = store.getState()
       const selected = mapState(state)
@@ -16,12 +17,10 @@ export const provider = store => mapState => target => {
 
     sync()
 
-    store.subscribe(sync)
-
-    return target.apply(this, args)
+    dispose = store.subscribe(sync)
   }
 
-  injected.prototype = target.prototype
-
-  return injected
+  target.prototype.unbind = function(...args) {
+    if (dispose) dispose()
+  }
 }

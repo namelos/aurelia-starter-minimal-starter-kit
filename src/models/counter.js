@@ -7,4 +7,5 @@ export const counter = (state = initalState, action) => {
     case INCREMENT: return { n: state.n + 1 }
     default: return state
   }
-};
+}
+
