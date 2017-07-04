@@ -1,11 +1,6 @@
 import { connect, store } from './store'
-import { INCREMENT } from './models/counter'
+import { increment } from './models/counter'
 
-@connect(({ n }) => ({ n }))
+@connect(({ n }) => ({ n }), { increment })
 export class App {
-  text = 'world'
-
-  onClick() {
-    store.dispatch({ type: INCREMENT })
-  }
 }

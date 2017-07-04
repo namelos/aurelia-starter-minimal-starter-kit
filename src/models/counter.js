@@ -9,3 +9,4 @@ export const counter = (state = initalState, action) => {
   }
 }
 
+export const increment = () => ({ type: INCREMENT })
