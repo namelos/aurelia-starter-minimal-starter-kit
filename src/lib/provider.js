@@ -38,6 +38,6 @@ export const provider = store => (mapState, mapDispatch) => target => {
 
   target.prototype.unbind = function (...args) {
     if (dispose) dispose()
-    if (originalUnbind) originalUnbind.apply(this, ...args)
+    if (originalUnbind) originalUnbind.apply(this, args)
   }
 }

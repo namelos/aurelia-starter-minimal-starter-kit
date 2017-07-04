@@ -57,27 +57,26 @@ describe('provider', () => {
         this.data = data
       }
 
-      bind() {
-        console.log('this', this)
-        this.binded = 'the bind hook has been properly called'
+      bind(arg1, arg2, arg3) {
+        this.binded = `the bind hook has been properly called, here are the args: ${arg1} ${arg2} ${arg3}`
       }
 
-      unbind() {
-        this.unbinded = 'the unbinded hook has been properly called'
+      unbind(arg1, arg2, arg3) {
+        this.unbinded = `the unbinded hook has been properly called, here are the args: ${arg1} ${arg2} ${arg3}`
       }
     }
 
     const component = new Component('The precious data...')
 
-    component.bind()
+    component.bind(1, 2, 3)
     expect(component.data).toBe('The precious data...')
     expect(component.n).toBe(0)
-    expect(component.binded).toBe('the bind hook has been properly called')
+    expect(component.binded).toBe('the bind hook has been properly called, here are the args: 1 2 3')
 
-    component.unbind()
+    component.unbind(4, 5, 6)
     store.dispatch({ type: INCREMENT })
     expect(component.n).toBe(0)
-    expect(component.unbinded).toBe('the unbinded hook has been properly called')
+    expect(component.unbinded).toBe('the unbinded hook has been properly called, here are the args: 4 5 6')
   })
 
   it('should map dispatch to component property with action creators', () => {
