@@ -7,7 +7,6 @@ export const provider = store => (mapState, mapDispatch) => target => {
   const originalBind = target.prototype.bind
   const originalUnbind = target.prototype.unbind
 
-
   target.prototype.bind = function (...args) {
     const sync = () => {
       const state = store.getState()
@@ -18,7 +17,9 @@ export const provider = store => (mapState, mapDispatch) => target => {
         prev = selected
       }
     }
+
     sync()
+
     dispose = store.subscribe(sync)
 
     if (mapDispatch) {
