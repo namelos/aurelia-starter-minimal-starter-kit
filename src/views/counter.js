@@ -1,5 +1,5 @@
 import { connect } from '../store'
-import { increment } from '../models/counter'
+import { increment, add } from '../models/counter'
 
-@connect(({ n }) => ({ n }), { increment })
+@connect(({ n }) => ({ n }), { increment, add })
 export class Counter {}

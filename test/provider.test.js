@@ -1,5 +1,5 @@
 import { provider } from '../src/lib/provider'
-import { counter, INCREMENT, increment } from '../src/models/counter'
+import { counter, INCREMENT, increment, add } from '../src/models/counter'
 import { createStore } from '../src/lib/createStore'
 
 describe('provider', () => {
@@ -98,5 +98,25 @@ describe('provider', () => {
 
     component.increment()
     expect(component.n).toBe(10)
+  })
+
+  it('should pass args to mapDispatch', () => {
+    const store = createStore(counter)
+
+    const connect = provider(store)
+
+    @connect(({ n }) =>  ({ n: n * 10 }), { add })
+    class Component {
+      constructor(data) {
+        this.data = data
+      }
+    }
+
+    const component = new Component('The precious data...')
+    component.bind()
+    expect(component.n).toBe(0)
+
+    component.add(10)
+    expect(component.n).toBe(100)
   })
 })
