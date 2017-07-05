@@ -1,0 +1,7 @@
+<template>
+  <input type="text" value.bind="inputValue">
+  <input type="button" value="addTodo" click.delegate="addTodo(inputValue)">
+  <ul>
+    <li repeat.for="todo of todos">${todo.text}</li>
+  </ul>
+</template>
